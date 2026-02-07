@@ -12,7 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         wish: resolve(__dirname, "src/wish/index.html"),
         checkout: resolve(__dirname, "src/checkout/index.html"),        
-        book: resolve(__dirname, "src/books_pages/index.html"),
+        book: resolve(__dirname, "src/book_pages/index.html"),
         book_listing: resolve(__dirname, "src/book_listing/index.html"),
       },
     },
