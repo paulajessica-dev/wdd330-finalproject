@@ -1,42 +1,39 @@
-const baseURL = import.meta.env.VITE_SERVER_URL;
+import BookData from "./BookData.mjs";
 
-async function convertToJson(res) {
-  
-  if (res.ok) {
-    return res.json();
+const baseURL = import.meta.env.VITE_OPEN_LIBRARY_BASE
+
+
+async function convertToJson(response) {
+  if (response.ok) {
+    return response.json();
   } else {
-    const errorText = await res.text();
-    throw { name: 'servicesError', message: errorText || "Error processing request" };
+    const errorText = await response.text();
+    throw new Error(errorText || "Error fetching data");
   }
 }
 
 export default class ExternalServices {
-  constructor() {
-    // this.category = category;
-    // this.path = `../public/json/${this.category}.json`;
-    this.baseURL = baseURL;
+
+  async getData(genre) {
+    return this.searchByGenre(genre);
   }
-  async getData(category) {
-    const response = await fetch(`${baseURL}products/search/${category}`);
-    const data = await convertToJson(response);
-    
-    return data.Result;
-  }
-  async findProductById(id) {
-    const response = await fetch(`${baseURL}product/${id}`);
-    const data = await convertToJson(response);
-    console.log(data.Result);
-    return data.Result;
-  }
-  async checkout(orderData) {
-    const response = await fetch(`${baseURL}checkout`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(orderData)
-    });
-    const data = await convertToJson(response);
-    return data;
+
+  async searchByGenre(genre) {
+    const url = `https://openlibrary.org/search.json?subject=${genre}`;
+
+    console.log("Fetching:", url);
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || "Failed to fetch books");
+    }
+
+    const data = await response.json();
+
+    return data.docs.map(
+      book => new BookData(book, genre)
+    );
   }
 }

@@ -41,8 +41,16 @@ p {
 }
 
 .logo {
-  line-height: 60px;
-  width: 245px;
+  line-height: 60px;  
+  overflow: hidden;
+  display: flex;
+  font-size: 30px;
+  text-align: right;
+  
+}
+
+.cart {  
+  width: 70px;
   overflow: hidden;
   display: flex;
   font-size: 30px;
@@ -51,12 +59,11 @@ p {
 }
 
 .logo img {
-  width: 60px;
-  height: 60px;
+  width: 10%;
+  height: 100%;
 }
 
-.logo a {
-  text-decoration: none;
+.logo a {  
   color: var(--font-body);
 }
 
@@ -94,10 +101,10 @@ p {
   margin-top: -1.7em;
 }
 
-/* utility classes */
+/* utility classes
 .highlight {
   color: var(--tertiary-color);
-}
+} */
 
 button {
   padding: 0.5em 2em;
@@ -111,7 +118,7 @@ button {
 }
 
 .divider {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid #81ece5;
   /* border-style: double; */
 }
 
@@ -128,7 +135,7 @@ button {
 
 /* Cart icon styles */
 .cart {
-  padding-top: 1em;
+  
   position: relative;
   text-align: center;
 }
@@ -167,29 +174,37 @@ button {
   left: 0;
   right: 0;
   line-height: 1.3;
-  width: 100%;
-  background-color: var(--dark-grey);
-  color: var(--light-grey);
+  width: 100%;  
+  color: rgb(8, 8, 8);
   opacity: 0.8;
+  background: linear-gradient(to right, #dbd3cd, #81ece5);
 }
 
-.mission p {
-  margin: 0 auto;
+.mission p {  
   width: 50%;
   text-align: center;
 }
 
 #product-icons {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 50px;
+  display: grid;   
+  columns: 1fr 1fr;
+}
+
+#product-icons > div {
+  display: flex;   
+  padding: 10px;
+}
+
+#product-icons i  mg {
+  display: block;
+  margin: 0 auto;
 }
 
 .icon-title {
   text-align: center;
-  font-family: var(--font-headline);
+  font-family: var(--font-body);
   color: var(--tertiary-color);
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .products {
