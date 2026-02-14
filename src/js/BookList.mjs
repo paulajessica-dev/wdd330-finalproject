@@ -43,22 +43,14 @@ export default class BookList {
           <h3 class="book_title">${book.title}</h3>
           <p class="book_authors">
             ${book.authors.join(", ")}
-          </p>
-          <p class="book_genre">${book.genre}</p>
+          </p>          
           ${
             book.publishYear
               ? `<p class="book_year">${book.publishYear}</p>`
               : ""
           }
         </a>
-
-        <button 
-          class="lookup" 
-          data-id="${book.id}"
-          aria-label="Quick book lookup"
-        >
-          Quick lookup
-        </button>
+        <a class="btn" href="/book_details/index.html?id=${book.id}"> see details</a>
       </li>
     `;
   }

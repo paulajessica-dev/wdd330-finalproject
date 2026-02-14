@@ -36,4 +36,15 @@ export default class ExternalServices {
       book => new BookData(book, genre)
     );
   }
+
+  async getBookById(id) {
+      const url = `https://openlibrary.org${id}.json`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      return new BookData(data);
+    }
+
 }
+
+

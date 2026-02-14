@@ -8,7 +8,7 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  return JSON.parse(localStorage.getItem(key));  
   
 };
 
@@ -59,13 +59,14 @@ export async function loadTemplate(path) {
 
 export function getWishCount() {
   const wish = JSON.parse(localStorage.getItem("so-wish")) || [];
-  return wish.reduce(
-    (total, item) => total + (item.quantity ?? 1), 0  );
+  // return wish.reduce(
+  //   (total, item) => total + (item.quantity ?? 1), 0  );
+  return wish.length;
 };
 
 export function initWishCounter() {
    
-    const wishIcon = document.querySelector(".wish");
+    const wishIcon = document.querySelector(".wish-count");
     if (!wishIcon) return;
     
     let counter = document.getElementById("counter");
@@ -73,7 +74,7 @@ export function initWishCounter() {
     if (!counter) {
     counter = document.createElement("div");
     counter.id = "counter";
-        wishtIcon.prepend(counter);
+        wishIcon.prepend(counter);
     }
     
     const count = getWishCount();
