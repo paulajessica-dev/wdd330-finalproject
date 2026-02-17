@@ -28,8 +28,19 @@ export default class WishListing {
           <h3 class="book_title">${item.title}</h3>
           <p class="book_authors">
             ${item.authors?.join(", ") ?? ""}
-          </p>
+          </p>          
         </a>
+        ${
+            item.downloadUrl
+              ? `<a 
+                  href="${item.downloadUrl}" 
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  ⬇ Download
+                </a>`
+              : ""
+          }
       </li>
     `;
   }

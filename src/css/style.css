@@ -196,6 +196,44 @@ p {
   justify-content: space-around;
 }
 
+.rating-section {
+  margin-top: 1rem;
+}
+
+.stars {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.star {
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+.star.active {
+  color: #A66B37;
+}
+
+.book-rating {
+  color: #A66B37;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.book-rating .votes {
+  color: #666;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.book-genre {
+  font-size: 0.85rem;
+  color: #402A1E;
+  opacity: 0.8;
+  margin-top: 0.2rem;
+}
+
+
 
 .wish-link {
   position: relative;

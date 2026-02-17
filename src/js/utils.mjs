@@ -64,6 +64,7 @@ export function getWishCount() {
   return wish.length;
 };
 
+
 export function initWishCounter() {
    
     const wishIcon = document.querySelector(".wish-count");
@@ -88,6 +89,65 @@ export function initWishCounter() {
  }
 };
 
+export function getRatings() {
+  return getLocalStorage("book-ratings") || {};
+
+};
+
+export function saveRating(bookId, rating) {
+  const ratings = getRatings();
+  if (!ratings[bookId]) {
+    ratings[bookId] = {
+    ratings: [],
+    average : 0,
+    count: 0
+    };
+  }
+    ratings[bookId].ratings.push(rating); //adds new review
+    ratings[bookId].count = ratings[bookId].ratings.length; // counts how many ratings there are in the array
+
+    const sum = ratings[bookId].ratings.reduce((a, b) => a + b, 0); //sum all the notes
+    ratings[bookId].average = sum / ratings[bookId].count; //average all the notes
+
+    setLocalStorage("book-ratings", ratings);
+  
+};
+
+
+//["/works/OL1", { average: 4.5, count: 2 }]
+// bookId = "/works/OL1"
+// data = { average: 4.5, count: 2 }
+// Object.entries
+// [
+//   { id: "/works/OL1", average: 4.5, count: 2 },
+//   { id: "/works/OL2", average: 3, count: 1 }
+// ]
+//Object.keys(obj),Object.keys(obj), Object.values(obj)
+
+export function getTopRatedBooks(limit = 10) {
+  const ratings = getRatings();
+
+  return Object.entries(ratings)
+    .map(([bookId, data]) => ({
+      id: bookId,
+      average: data.average,
+      count: data.count
+    }))
+    .filter(book => book.count > 0)
+    .sort((a, b) => b.average - a.average)
+    .slice(0, limit);
+};
+
+export function getTopRatedBook() {
+  const top = getTopRatedBooks(1);
+  return top.length ? top[0] : null;
+};
+
+
+export function getBookRating(bookId) {
+  const ratings = getRatings();
+  return ratings[bookId] || null;
+};
 
 export async function loadHeaderFooter(){
   const templateHeader = await loadTemplate("../partials/header.html");
