@@ -324,7 +324,6 @@ h3 {
 }
 
 
-
 .wish-link {
   position: relative;
   display: inline-block;
@@ -399,46 +398,6 @@ h3 {
   justify-content: flex-start;
   height: 200px;
    
-}
-
-
-#search-div {
-  margin: auto;
-  justify-self: center;
-}
-
-#search-bar {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-#search-input {
-  padding: 10px;
-  font-size: 17px;
-}
-#checkout-form{
-  display: inline;
-}
-
-#checkout-form fieldset{
-  padding: 0.5em;
-  margin: 1em;
-}
-
-
-#checkout-form input {
-  display: block;
-  height: 45px;
-  width: 70%;
-  margin-bottom: 1em;
-}
-
-.success-message {
-  font-size: 1rem;
-  padding: 1rem;
-  margin: 1rem 0;
-  color: #065f46;
 }
 
 @media screen and (max-width: 480px) {
