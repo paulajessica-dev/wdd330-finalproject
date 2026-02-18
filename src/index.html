@@ -28,28 +28,28 @@
           <p>Books turn quiet moments into powerful experiences.</p>
         </div>
       </div>
-      <div id="books-icons">
-      <div><a href="/book_listing/index.html?genre=fiction"><img src="/images/bookfiction.png" alt="fiction icon" width="30px"></a>
-      <p class="icon-title">Fiction</p></div>
-      <div><a href="/book_listing/index.html?genre=biography"><img src="/images/biography.png" alt="biography icon" width="30px"></a>
-      <p class="icon-title">Biography</p></div>
-      <div><a href="/book_listing/index.html?genre=horror"><img src="/images/horror.png" alt="horror icon" width="30px"></a>
-      <p class="icon-title">Horror</p></div>
-      <div><a href="/book_listing/index.html?genre=romance"><img src="/images/romance.png" alt="romance icon" width="30px"></a>
-      <p class="icon-title">Romance</p></div>
-      <div><a href="/book_listing/index.html?genre=fantasy"><img src="/images/spellbook.png" alt="fantasy icon" width="30px"></a>
-      <p class="icon-title">Fantasy</p></div>
-      </div>
-      <section class="top-rated-home">
-        <h2>⭐ Top Rated Pick</h2>
-        <div class="top-rated-feature" id="top-rated-feature">
-          <!-- preenchido via JS -->
+
+      <nav class="genre-nav">
+        <ul class="genre-list">
+          <li><a href="/book_listing/index.html?genre=fiction"><img src="/images/bookfiction.png" alt="fiction icon" width="30px">Fiction</a></li>
+          <li><a href="/book_listing/index.html?genre=biography"><img src="/images/biography.png" alt="biography icon" width="30px">Biography</a></li>
+          <li><a href="/book_listing/index.html?genre=horror"><img src="/images/horror.png" alt="horror icon" width="30px">Horror</a></li>
+          <li><a href="/book_listing/index.html?genre=romance"><img src="/images/romance.png" alt="romance icon" width="30px">Romance</a></li>
+          <li><a href="/book_listing/index.html?genre=fantasy"><img src="/images/spellbook.png" alt="fantasy icon" width="30px">Fantasy</a></li>
+          
+        </ul>
+      </nav>
+      <section class="home-features">
+        
+        <div id="top-rated-feature" class="top-rated-feature">
+          <h2>⭐ Top Rated Pick</h2>
+          <a href="/top_rated/index.html" class="btn"></a>
         </div>
-        <a href="/top_rated/index.html" class="btn"></a>
-      </section>
-      <section class="trending-home">
-            <h2>🔥 Trending Now</h2>
-            <div id="trending-feature"></div>
+        
+        <div id="trending-feature" class="trending-home">
+          <h2>🔥 Trending Now</h2>
+          <a href="/trending/index.html" class="btn"></a>
+        </div>            
       </section>
     </main>
     <footer id="dynamic-footer"></footer>
