@@ -44,7 +44,7 @@ header {
 }
 
 p {
-  padding: 0.75rem;
+  padding: 0.25rem;
 }
 
 .logo {
@@ -224,17 +224,26 @@ p {
   height: 17rem;
 }
 
+.book-card {   
+  background: linear-gradient(to right, white, #c0ece9);
+  border-radius: 8px;
+  padding: .8rem;
+  border: .5px solid #c0ece9;
+  width: 18rem;  
+  align-items: center;  
+}
+
 h3 {
   color: #065f46;
 }
 
 .book-list {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: 1fr;  
   list-style-type: none;
-  justify-content: center;
-  grid-column: 1/2;
-  grid-row: 2/3;
+  justify-content: left;
+  gap: 1rem;
+
 }
 
 .book-list a {
