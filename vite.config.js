@@ -10,8 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        wish: resolve(__dirname, "src/wish/index.html"),
-        checkout: resolve(__dirname, "src/checkout/index.html"),        
+        wish: resolve(__dirname, "src/wish/index.html"),              
         book: resolve(__dirname, "src/book_details/index.html"),
         book_listing: resolve(__dirname, "src/book_listing/index.html"),
       },
